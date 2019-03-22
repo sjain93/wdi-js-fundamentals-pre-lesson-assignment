@@ -16,23 +16,45 @@
 //   console.log('Pac-Man eats '+ ghosts[index]);
 // }
 //
-powerPelletEaten = false;
-let ghosts = 4;
 
-while (true) {
-  console.log('Ghosts remaing: '+ ghosts);
+// console.log('Pac-man returns home after a long day in the maze.');
 
-    if (powerPelletEaten == false) {
-      console.log('Pac-man eats the power pellet');
-      powerPelletEaten = true;
-    }
-    else if (ghosts>0) {
-      console.log('Pac-man eats a ghost');
-      ghosts--;
-    }
-    else {
-      break;
-    }
+// function eatDot () {
+//   console.log('Munch!');
+// }
+//
+// eatDot();
+//
+// const highScores = [];
+// function addHighScore(highScoreList, playerInitials, score ) {
+//   const record = { player: playerInitials, score: score};
+//   highScoreList.push(record);
+// }
+
+function addScore(currentScore, eaten) {
+  switch (eaten) {
+  case 'dot':
+    scoreToAdd = 10;
+    break;
+  case 'powerPellet':
+    scoreToAdd = 50;
+    break;
+  case 'firstGhost':
+    scoreToAdd = 200;
+    break;
+  case 'secondGhost':
+    scoreToAdd = 400;
+    break;
   }
 
-console.log('Pac-man returns home after a long day in the maze.');
+  return currentScore + scoreToAdd;
+}
+
+let score = 0; // try this with const - it won't work!
+
+score = addScore(score, 'dot');
+score = addScore(score, 'dot');
+score = addScore(score, 'dot');
+score = addScore(score, 'powerPellet');
+score = addScore(score, 'firstGhost');
+console.log('Your score: ' + score);
